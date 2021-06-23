@@ -26,7 +26,7 @@ logging.basicConfig(level=logging.DEBUG)
 class BTKbDevice():
     # change these constants
     MY_ADDRESS = "B8:27:EB:C5:B3:27"
-    MY_DEV_NAME = "ThanhLe_Keyboard_Mouse"
+    MY_DEV_NAME = "HID2BT"
 
     # define some constants
     P_CTRL = 17  # Service port - must match port configured in SDP record
@@ -92,6 +92,7 @@ class BTKbDevice():
         # Start listening on the server sockets
         self.scontrol.listen(5)
         self.sinterrupt.listen(5)
+        self.accept_conn()
 
         self.ccontrol, cinfo = self.scontrol.accept()
         print (

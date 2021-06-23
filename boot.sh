@@ -5,18 +5,11 @@ sudo /etc/init.d/bluetooth start
 # Update  mac address
 ./updateMac.sh
 #Update Name
-./updateName.sh ThanhLe_Keyboard_Mouse
+./updateName.sh HID2BT
 #Get current Path
+cd ~/hid2bt/
 export C_PATH=$(pwd)
 
-tmux kill-window -t thanhle:app >/dev/null 2>&1
-
-[ ! -z "$(tmux has-session -t thanhle 2>&1)" ] && tmux new-session -s thanhle -n app -d
-[ ! -z "$(tmux has-session -t thanhle:app 2>&1)" ] && {
-    tmux new-window -t thanhle -n app
-}
-[ ! -z "$(tmux has-session -t thanhle:app.1 2>&1)" ] && tmux split-window -t thanhle:app -h
-[ ! -z "$(tmux has-session -t thanhle:app.2 2>&1)" ] && tmux split-window -t thanhle:app.1 -v
-tmux send-keys -t thanhle:app.0 'cd $C_PATH/server && sudo ./btk_server.py' C-m
-tmux send-keys -t thanhle:app.1 'cd $C_PATH/mouse  && reset' C-m
-tmux send-keys -t thanhle:app.2 'cd $C_PATH/keyboard  && reset' C-m
+cd $C_PATH/server && sudo ./btk_server.py &
+cd $C_PATH/keyboard && sudo ./kb_client.py
+#cd $C_PATH/mouse && sudo ./mouse_client.py
