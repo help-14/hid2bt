@@ -5,9 +5,9 @@ sudo /etc/init.d/bluetooth start
 #Go to work follder
 cd ~/hid2bt/
 # Update  mac address
-./updateMac.sh
+#./updateMac.sh
 #Update Name
-./updateName.sh HID2BT
+#./updateName.sh HID2BT
 #Get current Path
 export C_PATH=$(pwd)
 
