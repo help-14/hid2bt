@@ -7,7 +7,7 @@ sudo /etc/init.d/bluetooth start
 #Update Name
 ./updateName.sh HID2BT
 #Get current Path
-cd ~/hid2bt/
+cd /root/hid2bt/
 export C_PATH=$(pwd)
 
 cd $C_PATH/server && sudo ./btk_server.py &
