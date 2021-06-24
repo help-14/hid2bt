@@ -92,7 +92,6 @@ class BTKbDevice():
         # Start listening on the server sockets
         self.scontrol.listen(5)
         self.sinterrupt.listen(5)
-        self.accept_conn()
 
         self.ccontrol, cinfo = self.scontrol.accept()
         print (
